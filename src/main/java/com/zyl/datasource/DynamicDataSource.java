@@ -99,14 +99,14 @@ public class DynamicDataSource extends AbstractRoutingDataSource implements Appl
 		if (selectStament) {
 			List<DataSource> slaveDataSource = slaveDataSourceBeanMap.get(lookupKey);
 			if(slaveDataSource != null && slaveDataSource.size()>0) {
-				int idx = slaveDataSource.size();
-				if(idx == 1) {
-					return slaveDataSource.get(idx);
+				int size = slaveDataSource.size();
+				if(size == 1) {
+					return slaveDataSource.get(0);
 				}
 				/**
 				 * 读写分离读slave库策略：round robin 
 				 */
-				idx = counter.incrementAndGet() % slaveDataSource.size();
+				int idx = counter.incrementAndGet() % slaveDataSource.size();
 				return slaveDataSource.get(idx);
 			}
 		}
