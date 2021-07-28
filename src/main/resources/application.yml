@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      springframework: debug
+
+mybatis:
+  mapper-locations: classpath:mybatis/*Mapper.xml
+  config-location: classpath:mybatis-config.xml
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+
+
+
+
+
+
+
