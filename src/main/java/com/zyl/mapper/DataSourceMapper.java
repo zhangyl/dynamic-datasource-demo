@@ -6,9 +6,9 @@ import java.util.List;
 import com.zyl.annotation.DynamicRoutingDataSource;
 import com.zyl.bean.DataSourceDO;
 
-
+@DynamicRoutingDataSource("defaultDataSource")
 public interface DataSourceMapper {
-	@DynamicRoutingDataSource("defaultDataSource")
+	
     List<DataSourceDO> getAllDataSources();
 
 }
