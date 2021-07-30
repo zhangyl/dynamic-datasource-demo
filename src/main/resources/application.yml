@@ -5,6 +5,8 @@ logging:
   level:
     org:
       springframework: debug
+    com: 
+      zyl: debug
 
 mybatis:
   mapper-locations: classpath:mybatis/*Mapper.xml
