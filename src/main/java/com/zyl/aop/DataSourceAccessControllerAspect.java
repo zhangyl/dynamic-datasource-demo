@@ -21,7 +21,7 @@ public class DataSourceAccessControllerAspect {
 
     }
 
-    @Around(value="controllerPointcut")
+    @Around(value="controllerPointcut()")
     public Object handleLimit(ProceedingJoinPoint joinPoint) throws Throwable {
     	try {
     		//FIXME zyl: 从访问上下文中获取routerCode

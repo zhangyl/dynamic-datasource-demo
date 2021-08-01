@@ -63,13 +63,13 @@ public class TestController {
         	costService.insert2(cost);
         	DataSourceContext.toDefault();
         }
-        {
-        	//默认数据库
-	        Cost cost = new Cost();
-	        cost.setMoney(102);
-	        cost.setEntCode("2");
-	        costService.insert(cost);
-        }
+//        {
+//        	//默认数据库,不建表会报错
+//	        Cost cost = new Cost();
+//	        cost.setMoney(102);
+//	        cost.setEntCode("2");
+//	        costService.insert(cost);
+//        }
 		return "hello,world";
 	}
 }
