@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
-	<context:property-placeholder location="classpath:jdbc.properties" />
-
-	<bean id="defaultDataSource" class="com.alibaba.druid.pool.DruidDataSource"
-		init-method="init" destroy-method="close">
-		<property name="driverClassName" value="${jdbc.driverClassName}" />
+	<bean id="defaultDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
 		<property name="validationQuery" value="select 1"></property>
 		<property name="testOnBorrow" value="true"></property>
 		<property name="initialSize" value="5"></property>
@@ -21,7 +19,6 @@
 		<property name="timeBetweenEvictionRunsMillis" value="60000"></property>
 		<property name="minEvictableIdleTimeMillis" value="600000"></property>
 		<property name="testWhileIdle" value="true"></property>
-		
 	</bean>
 
 	<!--动态数据源相关-->
@@ -37,13 +34,14 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dynamicDataSource"></property>
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
-		<property name="mapperLocations" value="classpath:mybatis/*.xml"></property>
+		<property name="mapperLocations" value="classpath*:mybatis/*.xml"></property>
 		<property name="plugins">
 			<list>
 				<bean class="com.zyl.datasource.ZylSqlInterceptor"></bean>
 			</list>		
 		</property>
 	</bean>
+	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 		<property name="basePackage" value="com.zyl.mapper"></property>

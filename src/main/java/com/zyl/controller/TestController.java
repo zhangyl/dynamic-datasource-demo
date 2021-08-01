@@ -27,9 +27,15 @@ public class TestController {
 
 	@PostMapping("test")
 	public String test(HttpServletRequest request) {
+		//测试公共数据源查询
         List<DataSourceDO> dataSourceDOList = dataSourceMapper.getAllDataSources();
         log.info("-----------------------dataSourceDOList.size() == {}", dataSourceDOList.size());
-        
+        {
+        	DataSourceContext.setDataSource("multi_1");
+        	Cost c = costService.selectByPrimaryKey(1);
+        	log.info("-------------------c={}", c);
+        	DataSourceContext.toDefault();
+        }
         {
         	//----test 路由到数据源二
 	        DataSourceContext.setDataSource("multi_1");
@@ -57,13 +63,13 @@ public class TestController {
         	costService.insert2(cost);
         	DataSourceContext.toDefault();
         }
-//        {
-//        	//默认数据库
-//	        Cost cost = new Cost();
-//	        cost.setMoney(102);
-//	        cost.setEntCode("2");
-//	        costService.insert(cost);
-//        }
+        {
+        	//默认数据库
+	        Cost cost = new Cost();
+	        cost.setMoney(102);
+	        cost.setEntCode("2");
+	        costService.insert(cost);
+        }
 		return "hello,world";
 	}
 }

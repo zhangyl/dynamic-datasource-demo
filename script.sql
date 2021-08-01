@@ -20,6 +20,7 @@ CREATE TABLE multi_default.`other_datasource` (
 	`database_ip` VARCHAR(64) NOT NULL,
 	`database_name` VARCHAR(256) NOT NULL,
 	`database_port` VARCHAR(64) NOT NULL,
+	`database_type` INT NOT NULL COMMENT '1: master主库 2: slave库',
 	`database_username` VARCHAR(64) NOT NULL,
 	`database_password` VARCHAR(64) NOT NULL,
 	`database_url_extra_param` VARCHAR(512) NOT NULL,
@@ -28,8 +29,8 @@ CREATE TABLE multi_default.`other_datasource` (
 ENGINE=InnoDB AUTO_INCREMENT=1;
 
 INSERT INTO multi_default.`other_datasource` (`id`, `datasource_name`, `database_ip`, `database_name`, `database_port`, `database_username`, `database_password`, `database_url_extra_param`) VALUES
-	(1, 'multi_1', '127.0.0.1', 'multi_1', '3306', 'root', '123456', 'useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false'),
-	(2, 'multi_2', '127.0.0.1', 'multi_2', '3306', 'root', '123456', 'useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false');
+	(1, 'multi_1', '127.0.0.1', 'multi_1', '3306', 1, 'root', '123456', 'useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false'),
+	(2, 'multi_2', '127.0.0.1', 'multi_2', '3306', 1, 'root', '123456', 'useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false');
 	
 	
 

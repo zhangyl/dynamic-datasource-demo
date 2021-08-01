@@ -8,13 +8,15 @@ logging:
     com: 
       zyl: debug
 
-mybatis:
-  mapper-locations: classpath:mybatis/*Mapper.xml
-  config-location: classpath:mybatis-config.xml
+#mybatis:
+#  mapper-locations: classpath*:mybatis/*Mapper.xml
+#  config-location: classpath*:mybatis-config.xml
 
 spring:
   main:
     allow-bean-definition-overriding: true
+jdbc:
+  url: jdbc:mysql://127.0.0.1:3306/multi_default?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
 
 
 

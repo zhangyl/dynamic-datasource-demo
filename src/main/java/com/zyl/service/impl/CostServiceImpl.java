@@ -23,5 +23,9 @@ public class CostServiceImpl implements CostService {
 	public void insert2(Cost cost)  {
 		System.out.println("insert2:" + costMapper.insertSelective(cost));
 	}
+	
+	public Cost selectByPrimaryKey(Integer id) {
+		return costMapper.selectByPrimaryKey(id);
+	}
 
 }
