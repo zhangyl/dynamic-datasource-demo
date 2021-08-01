@@ -31,14 +31,14 @@ public class TestController {
         List<DataSourceDO> dataSourceDOList = dataSourceMapper.getAllDataSources();
         log.info("-----------------------dataSourceDOList.size() == {}", dataSourceDOList.size());
         {
-        	DataSourceContext.setDataSource("multi_1");
+        	DataSourceContext.setDataSourceRouterCode("multi_1");
         	Cost c = costService.selectByPrimaryKey(1);
         	log.info("-------------------c={}", c);
         	DataSourceContext.toDefault();
         }
         {
         	//----test 路由到数据源二
-	        DataSourceContext.setDataSource("multi_1");
+	        DataSourceContext.setDataSourceRouterCode("multi_1");
 	        Cost cost = new Cost();
 	        cost.setMoney(101);
 	        cost.setEntCode("1");
@@ -47,7 +47,7 @@ public class TestController {
         }
         {
         	//----test 路由到数据源一
-        	DataSourceContext.setDataSource("multi_2");
+        	DataSourceContext.setDataSourceRouterCode("multi_2");
 	        Cost cost = new Cost();
 	        cost.setMoney(102);
 	        cost.setEntCode("2");
@@ -56,7 +56,7 @@ public class TestController {
         }
         {
         	//----test 路由到主键指定的数据源.此测试指定数据源multi_1
-        	DataSourceContext.setDataSource("multi_2");
+        	DataSourceContext.setDataSourceRouterCode("multi_2");
         	Cost cost = new Cost();
         	cost.setMoney(200);
         	cost.setEntCode("2");
