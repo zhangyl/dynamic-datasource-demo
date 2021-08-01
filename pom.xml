@@ -15,6 +15,9 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+		<!--下载下面地址源码，然后mven install到本地
+		 https://github.com/zhangyl/dynamic-datasource 
+		-->
 		<dependency>
 			<groupId>com.zyl</groupId>
 			<artifactId>dynamic-datasource</artifactId>
