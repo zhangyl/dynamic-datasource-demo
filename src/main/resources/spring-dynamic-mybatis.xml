@@ -44,6 +44,7 @@
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		<!-- 非常重要。mapper.xml文件一定放在basePackage下面 -->
 		<property name="basePackage" value="com.zyl.mapper"></property>
 	</bean>
 
