@@ -12,6 +12,11 @@ logging:
 #  mapper-locations: classpath*:mybatis/*Mapper.xml
 #  config-location: classpath*:mybatis-config.xml
 
+
+#全局读写分离配置，默认false不开启
+dynamic-data-source:
+  readonly-slave: true
+
 spring:
   main:
     allow-bean-definition-overriding: true
