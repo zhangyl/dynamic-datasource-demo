@@ -8,15 +8,12 @@ logging:
     com: 
       zyl: debug
 
-#动态数据源初始化，默认关闭，需要显式打开
+#动态数据源配置
 dynamic-data-source:
+  #动态数据源初始化，默认关闭，需要显式打开
   shutdow-dynamic-init: false
-
-#全局读写分离配置，默认false不开启，开启后如果配置了slave，所有select查询都会走slave，
-#dynamic-data-source:
-#  readonly-slave: true
-
-
+  #全局读写分离配置，默认false不开启，开启后如果配置了slave，所有select查询都会走slave，是否需要打开，视情况而定
+  readonly-slave: false
 
 spring:
   main:
