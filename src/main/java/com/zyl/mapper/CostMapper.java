@@ -14,7 +14,7 @@ public interface CostMapper {
      * @param record
      * @return
      */
-    @DynamicRoutingDataSource("multi_1")
+    @DynamicRoutingDataSource("multi_1_master")
     int insertSelective(Cost record);
 
 

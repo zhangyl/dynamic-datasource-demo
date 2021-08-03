@@ -12,10 +12,15 @@ logging:
 #  mapper-locations: classpath*:mybatis/*Mapper.xml
 #  config-location: classpath*:mybatis-config.xml
 
-
-#全局读写分离配置，默认false不开启
+#动态数据源初始化，默认关闭，需要显式打开
 dynamic-data-source:
-  readonly-slave: true
+  shutdow-dynamic-init: false
+
+#全局读写分离配置，默认false不开启，开启后如果配置了slave，所有select查询都会走slave，
+#dynamic-data-source:
+#  readonly-slave: true
+
+
 
 spring:
   main:
