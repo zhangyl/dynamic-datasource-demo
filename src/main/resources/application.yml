@@ -8,10 +8,6 @@ logging:
     com: 
       zyl: debug
 
-#mybatis:
-#  mapper-locations: classpath*:mybatis/*Mapper.xml
-#  config-location: classpath*:mybatis-config.xml
-
 #动态数据源初始化，默认关闭，需要显式打开
 dynamic-data-source:
   shutdow-dynamic-init: false
