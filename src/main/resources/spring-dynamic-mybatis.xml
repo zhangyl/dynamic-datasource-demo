@@ -34,7 +34,12 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dynamicDataSource"></property>
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
-		<property name="mapperLocations" value="classpath*:mybatis/*.xml"></property>
+		<!-- 多个不同位置，可以用array配置 -->
+		<property name="mapperLocations">
+			<array>
+				<value>classpath*:mybatis/*.xml</value>
+			</array>
+		</property>
 		<property name="plugins">
 			<list>
 				<bean class="com.zyl.datasource.ZylSqlInterceptor"></bean>
@@ -44,8 +49,8 @@
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-		<!-- 非常重要。mapper.xml文件一定放在basePackage下面 -->
-		<property name="basePackage" value="com.zyl.mapper"></property>
+		<!-- 非常重要。mapper.xml文件一定放在basePackage下面。多个不同包可以英文逗号分割-->
+		<property name="basePackage" value="com.zyl.mapper,com.zyl.mymap"></property>
 	</bean>
 
 	<!-- 添加事务管理 -->
