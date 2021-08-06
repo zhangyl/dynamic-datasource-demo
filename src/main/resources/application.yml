@@ -18,6 +18,8 @@ dynamic-data-source:
 spring:
   main:
     allow-bean-definition-overriding: true
+
+#默认数据源配置
 jdbc:
   url: jdbc:mysql://127.0.0.1:3306/multi_default?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
   username: root

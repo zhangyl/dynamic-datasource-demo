@@ -20,16 +20,18 @@ CREATE TABLE multi_default.`other_datasource` (
 	`database_ip` VARCHAR(64) NOT NULL,
 	`database_name` VARCHAR(256) NOT NULL,
 	`database_port` VARCHAR(64) NOT NULL,
-	`database_type` INT NOT NULL COMMENT '1: master主库 2: slave库',
-	`router_code` INT NOT NULL COMMENT '路由时候设置的数据源路由编码，主库必须唯一。比如：如果根据租户A的企业编码路由，routerCode=租户A的企业编码',
 	`database_username` VARCHAR(64) NOT NULL,
 	`database_password` VARCHAR(64) NOT NULL,
 	`database_url_extra_param` VARCHAR(512) NOT NULL,
+	`database_type` INT NOT NULL COMMENT '1: master主库 2: slave库',
+	`router_code` VARCHAR(64) NOT NULL COMMENT '路由时候设置的数据源路由编码，主库必须唯一。比如：如果根据租户A的企业编码路由，routerCode=租户A的企业编码',	
 	PRIMARY KEY (`id`) USING BTREE
 )
 ENGINE=InnoDB AUTO_INCREMENT=1;
 
-INSERT INTO multi_default.`other_datasource` (`id`, `datasource_name`, `database_ip`, `database_name`, `database_port`, `database_username`, `database_password`, `database_url_extra_param`, `database_type`, `router_code`) VALUES
+INSERT INTO multi_default.`other_datasource` 
+	(`id`, `datasource_name`, `database_ip`, `database_name`, `database_port`, `database_username`, `database_password`, `database_url_extra_param`, `database_type`, `router_code`) 
+VALUES
 	(1, 'multi_1', '127.0.0.1', 'multi_1', '3306', 'root', '123456', 'useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false', 1, 'multi_1_master'),
 	(2, 'multi_2', '127.0.0.1', 'multi_2', '3306', 'root', '123456', 'useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false', 1, 'multi_2_master');
 	
