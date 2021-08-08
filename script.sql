@@ -32,8 +32,8 @@ ENGINE=InnoDB AUTO_INCREMENT=1;
 INSERT INTO multi_default.`other_datasource` 
 	(`id`, `datasource_name`, `database_ip`, `database_name`, `database_port`, `database_username`, `database_password`, `database_url_extra_param`, `database_type`, `router_code`) 
 VALUES
-	(1, 'multi_1', '127.0.0.1', 'multi_1', '3306', 'root', '123456', 'useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false', 1, 'multi_1_master'),
-	(2, 'multi_2', '127.0.0.1', 'multi_2', '3306', 'root', '123456', 'useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false', 1, 'multi_2_master');
+	(1, 'multi_1', '127.0.0.1', 'multi_1', '3306', 'root', '123456', 'useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true', 1, 'multi_1_master'),
+	(2, 'multi_2', '127.0.0.1', 'multi_2', '3306', 'root', '123456', 'useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true', 1, 'multi_2_master');
 	
 	
 

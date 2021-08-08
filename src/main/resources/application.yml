@@ -10,10 +10,14 @@ logging:
 
 #动态数据源配置
 dynamic-data-source:
-  #动态数据源初始化，默认关闭，需要显式打开
+  #动态数据源初始化，默认true表示关闭，需要显式打开，注意配置false为打开
   shutdow-dynamic-init: false
-  #全局读写分离配置，默认false不开启，开启后如果配置了slave，所有select查询都会走slave，是否需要打开，视情况而定
+  #针对动态新增主、备库数据源，不停机应用感知，目前感知时间5分钟，将来有需求考虑放开自定义配置
+  shutdow-dynamic-schedule-init: false
+  #全局读写分离配置，默认false为不开启，true为开启，开启后如果配置了slave，所有select查询都会走slave
+  #此配置不影响注解开启slave查询，如果同时配置slave注解，根据就近原则，slave注解优先级高
   readonly-slave: false
+  
 
 spring:
   main:
@@ -21,9 +25,9 @@ spring:
 
 #默认数据源配置
 jdbc:
-  url: jdbc:mysql://127.0.0.1:3306/multi_default?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
+  url: jdbc:mysql://127.0.0.1:3306/multi_default?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
   username: root
-  password: '123456'
+  password: 'zyl123456'
 
 
 

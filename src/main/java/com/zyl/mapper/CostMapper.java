@@ -1,6 +1,7 @@
 package com.zyl.mapper;
 
 import com.zyl.annotation.DynamicRoutingDataSource;
+import com.zyl.annotation.ReadonlyDataSource;
 import com.zyl.bean.Cost;
 
 public interface CostMapper {
@@ -17,7 +18,7 @@ public interface CostMapper {
     @DynamicRoutingDataSource("multi_1_master")
     int insertSelective(Cost record);
 
-
+    @ReadonlyDataSource
     Cost selectByPrimaryKey(Integer id);
 
 

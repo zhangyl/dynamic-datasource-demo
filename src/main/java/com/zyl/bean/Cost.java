@@ -39,5 +39,10 @@ public class Cost {
 	public void setEntCode(String entCode) {
 		this.entCode = entCode;
 	}
+
+	@Override
+	public String toString() {
+		return "Cost {id=" + id + ", money=" + money + ", entCode=" + entCode + "}";
+	}
     
 }
