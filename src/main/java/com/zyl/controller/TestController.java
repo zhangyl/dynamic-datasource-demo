@@ -19,7 +19,7 @@ public class TestController {
 	@Autowired
 	CostService costService;
 	
-	@PostMapping("testAnnotationSlave")
+	@PostMapping("testSelect")
 	public String testSelect(HttpServletRequest request) {
         
         {
